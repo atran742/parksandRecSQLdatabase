@@ -1,0 +1,26 @@
+SELECT * FROM employee_demographics;
+
+
+#lists first name of employee, age, and a 10 year increase on age 
+SELECT first_name, age, age +10  FROM employee_demographics;
+
+#selects employees with an ocupation that ends with 'er'
+select * 
+from employee_salary
+where occupation like '%er' ;
+
+#combines the rows from different tables that have simlar coloumns, lists employeeID, age, and occupation 
+select dem.employee_id, age, Occupation
+from employee_demographics as dem
+inner join employee_salary as sal
+	on dem.employee_id = sal.employee_id
+;
+
+#combines similar columns from employeedemographics and employeesalary 
+select first_name, last_name
+from employee_demographics
+union 
+select first_name, last_name
+from employee_salary
+;
+
