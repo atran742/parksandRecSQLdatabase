@@ -1,0 +1,42 @@
+SELECT * FROM Parks_and_Recreation.employee_demographics;
+
+
+SELECT * FROM Parks_and_Recreation.employee_salary;
+
+#employees with salaries equal too or less than 50000
+select * from Parks_and_Recreation.employee_salary
+where salary <= 50000;
+
+#all female employees 
+select * from Parks_and_Recreation.employee_demographics
+where Gender = 'Female';
+
+# employees born before Janurary 1st 1985 and are male 
+Select * from Parks_and_Recreation.employee_demographics
+where birth_date > '1985-01-01'
+and Gender = 'Male';
+
+#orders employees by gender and then age 
+Select * from Parks_and_Recreation.employee_demographics
+order by gender, age;
+
+#lists all genders present 
+Select gender from Parks_and_Recreation.employee_demographics
+group by gender;
+
+
+#displays gender if the gender if the average age is greater than 40 
+select gender, Avg(age)
+from Parks_and_Recreation.employee_demographics
+group by gender
+having avg(age) > 40;
+
+#selects employees who are older than 40 and are female, but limits the value to only three employees 
+Select * from Parks_and_Recreation.employee_demographics
+where gender = 'female'
+and age > 40
+limit 3;
+
+
+
+
